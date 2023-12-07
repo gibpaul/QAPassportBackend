@@ -2,3 +2,8 @@ logging:
   level: INFO
   loggers:
     org.kainos.ea: DEBUG
+database:
+  driverClass: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/passport_prototype
+  user: USERNAME
+  password: PASSWORD
