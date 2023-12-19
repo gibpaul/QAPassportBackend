@@ -7,3 +7,7 @@ database:
   url: jdbc:postgresql://localhost:5432/passport_prototype
   user: USERNAME
   password: PASSWORD
+  properties:
+    charSet: UTF-8
+    currentSchema: public
+    hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
