@@ -1,6 +1,7 @@
 package org.kainos.ea.cli;
 
+@SuppressWarnings("unused")
 public enum Gender {
-    FEMALE,
-    MALE
+    F,
+    M
 }

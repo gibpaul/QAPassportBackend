@@ -1,40 +1,30 @@
 package org.kainos.ea.cli;
 
-import java.util.UUID;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "names")
 public class Name {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
-
+    private int id;
+    @SuppressWarnings("unused")
     private String surname;
+    @SuppressWarnings("unused")
     private String forenames;
 
     public Name() {
         
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     public String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
     public String getForenames() {
         return forenames;
     }
 
-    public void setForenames(String forenames) {
-        this.forenames = forenames;
-    }
 }

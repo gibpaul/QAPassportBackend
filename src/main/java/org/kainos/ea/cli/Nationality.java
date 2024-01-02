@@ -1,33 +1,24 @@
 package org.kainos.ea.cli;
 
-import java.util.UUID;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "nationalities")
 public class Nationality {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
-
-    @Column(name = "dual_national")
+    private int id;
+    @SuppressWarnings("unused")
     private boolean dualNational;
 
     public Nationality() {
         
     }
 
-    private boolean isDualNational() {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isDualNational() {
         return dualNational;
     }
 
-    private void setDualNational(boolean dualNational) {
-        this.dualNational = dualNational;
-    }
 }
