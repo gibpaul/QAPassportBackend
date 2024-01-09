@@ -3,6 +3,7 @@ package org.kainos.ea.resources;
 import io.swagger.annotations.Api;
 import org.kainos.ea.api.ApplicationService;
 import org.kainos.ea.cli.Application;
+import org.kainos.ea.cli.ApplicationWrapper;
 import org.kainos.ea.client.FailedToCreateApplicationException;
 
 import javax.ws.rs.Consumes;
@@ -21,8 +22,9 @@ public class ApplicationResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response submitApplication(Application application) {
+    public Response submitApplication(ApplicationWrapper applicationWrapper) {
         try {
+            Application application = applicationWrapper.getApplication();
             return Response.ok(applicationService.createApplication(application)).build();
         } catch (FailedToCreateApplicationException e) {
             System.err.println(e.getMessage());
