@@ -33,5 +33,4 @@ public class trueApplication extends Application<trueConfiguration> {
                     final Environment environment) {
         environment.jersey().register(new ApplicationResource());
     }
-
 }
