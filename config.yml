@@ -2,13 +2,5 @@ logging:
   level: INFO
   loggers:
     org.kainos.ea: DEBUG
-
-database:
-  driverClass: org.postgresql.Driver
-  user: userpg
-  password: password
-  url: jdbc:postgresql://localhost:5432/academyfrontend
-  properties:
-    charSet: UTF-8
-    currentSchema: public
-    hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+swagger:
+  resourcePackage: org.kainos.ea.resources

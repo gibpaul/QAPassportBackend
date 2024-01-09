@@ -1,39 +1,61 @@
 package org.kainos.ea.cli;
 
-import java.util.Date;
-
 public class Passport {
-    public int getPassportId() {
-        return passportId;
+    private int id;
+    @SuppressWarnings("unused")
+    private String passportNumber;
+    @SuppressWarnings("unused")
+    private int expiryYear;
+    @SuppressWarnings("unused")
+    private int expiryMonth;
+    @SuppressWarnings("unused")
+    private int expiryDay;
+    @SuppressWarnings("unused")
+    private int issuedYear;
+    @SuppressWarnings("unused")
+    private int issuedMonth;
+    @SuppressWarnings("unused")
+    private int issuedDay;
+
+    public Passport() {
+        
     }
 
-    public void setPassportId(int passportId) {
-        this.passportId = passportId;
+    public int getId() {
+        return id;
     }
 
-    public int getApplicantId() {
-        return applicantId;
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public String getPassportNumber() {
+        return passportNumber;
     }
 
-    public void setApplicantId(int applicantId) {
-        this.applicantId = applicantId;
+    public int getExpiryYear() {
+        return expiryYear;
     }
 
-    public Date getApplicationDate() {
-        return applicationDate;
+    public int getExpiryMonth() {
+        return expiryMonth;
     }
 
-    public void setApplicationDate(Date applicationDate) {
-        this.applicationDate = applicationDate;
+    public int getExpiryDay() {
+        return expiryDay;
     }
 
-    public Passport(int passportId, int applicantId, Date applicationDate) {
-        this.passportId = passportId;
-        this.applicantId = applicantId;
-        this.applicationDate = applicationDate;
+    public int getIssuedYear() {
+        return issuedYear;
     }
 
-    private int passportId;
-    private int applicantId;
-    private Date applicationDate;
+    public int getIssuedMonth() {
+        return issuedMonth;
+    }
+
+    public int getIssuedDay() {
+        return issuedDay;
+    }
+
 }
+
