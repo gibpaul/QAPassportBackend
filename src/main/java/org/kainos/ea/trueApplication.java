@@ -5,6 +5,7 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
+import org.kainos.ea.health.MyHealthCheck;
 import org.kainos.ea.resources.ApplicationResource;
 
 public class trueApplication extends Application<trueConfiguration> {
@@ -32,5 +33,7 @@ public class trueApplication extends Application<trueConfiguration> {
     public void run(final trueConfiguration configuration,
                     final Environment environment) {
         environment.jersey().register(new ApplicationResource());
+        final MyHealthCheck healthCheck = new MyHealthCheck();
+        environment.healthChecks().register("my-health-check", healthCheck);
     }
 }
