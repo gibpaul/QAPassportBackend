@@ -1,10 +1,10 @@
-package org.kainos.ea.resources;
+package org.kainos.ea.controller;
 
 import io.swagger.annotations.Api;
-import org.kainos.ea.api.ApplicationService;
+import org.kainos.ea.service.ApplicationService;
 import org.kainos.ea.cli.Application;
 import org.kainos.ea.cli.ApplicationWrapper;
-import org.kainos.ea.client.FailedToCreateApplicationException;
+import org.kainos.ea.exception.FailedToCreateApplicationException;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -15,9 +15,14 @@ import javax.ws.rs.core.Response;
 
 @Api("QA Academy Passport Application API")
 @Path("/application")
-@Produces(MediaType.APPLICATION_JSON)
-public class ApplicationResource {
-    private final ApplicationService applicationService = new ApplicationService();
+public class ApplicationController {
+   // private final ApplicationService applicationService = new ApplicationService();
+
+    private final ApplicationService applicationService;
+
+    public ApplicationController(ApplicationService applicationService) {
+        this.applicationService = applicationService;
+    }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)

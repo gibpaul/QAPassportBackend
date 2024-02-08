@@ -5,8 +5,11 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.federecio.dropwizard.swagger.SwaggerBundle;
 import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
+import org.kainos.ea.daos.ApplicationDao;
 import org.kainos.ea.health.MyHealthCheck;
-import org.kainos.ea.resources.ApplicationResource;
+import org.kainos.ea.controller.ApplicationController;
+import org.kainos.ea.service.ApplicationService;
+import org.kainos.ea.util.DatabaseConnector;
 
 public class trueApplication extends Application<trueConfiguration> {
 
@@ -32,7 +35,7 @@ public class trueApplication extends Application<trueConfiguration> {
     @Override
     public void run(final trueConfiguration configuration,
                     final Environment environment) {
-        environment.jersey().register(new ApplicationResource());
+        environment.jersey().register(new ApplicationController(new ApplicationService(new ApplicationDao(), new DatabaseConnector())));
         final MyHealthCheck healthCheck = new MyHealthCheck();
         environment.healthChecks().register("my-health-check", healthCheck);
     }

@@ -1,18 +1,20 @@
 package org.kainos.ea.daos;
 
 import org.kainos.ea.cli.*;
-import org.kainos.ea.db.DatabaseConnector;
+import org.kainos.ea.util.DatabaseConnector;
 
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ApplicationDAO {
+public class ApplicationDao {
+
+    private final DatabaseConnector databaseConnector = new DatabaseConnector();
     public int createApplication(Application application) throws SQLException {
         Connection c = null;
         PreparedStatement ps = null;
         int result;
-        Logger logger = Logger.getLogger(ApplicationDAO.class.getName());
+        Logger logger = Logger.getLogger(ApplicationDao.class.getName());
 
         try {
             c = DatabaseConnector.getConnection();

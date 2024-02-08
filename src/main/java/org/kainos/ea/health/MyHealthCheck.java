@@ -1,6 +1,6 @@
 package org.kainos.ea.health;
 import com.codahale.metrics.health.HealthCheck;
-import org.kainos.ea.db.DatabaseConnector;
+import org.kainos.ea.util.DatabaseConnector;
 
 import java.sql.Connection;
 import java.sql.SQLException;

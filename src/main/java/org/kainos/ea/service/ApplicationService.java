@@ -1,16 +1,26 @@
-package org.kainos.ea.api;
+package org.kainos.ea.service;
 
 import java.sql.SQLException;
 
 import org.kainos.ea.cli.Application;
-import org.kainos.ea.client.FailedToCreateApplicationException;
-import org.kainos.ea.daos.ApplicationDAO;
+import org.kainos.ea.exception.FailedToCreateApplicationException;
+import org.kainos.ea.daos.ApplicationDao;
+import org.kainos.ea.util.DatabaseConnector;
 
 public class ApplicationService {
-    private final ApplicationDAO applicationDao = new ApplicationDAO();
+    public ApplicationDao applicationDao;
+    public DatabaseConnector databaseConnector;
+
+    public ApplicationService(ApplicationDao applicationDao, DatabaseConnector databaseConnector) {
+        this.applicationDao = applicationDao;
+        this.databaseConnector = databaseConnector;
+    }
 
     public int createApplication(Application application) throws FailedToCreateApplicationException {
         try {
+//
+//             add validation step here
+//
             int id = applicationDao.createApplication(application);
 
             if (id == -1) {
