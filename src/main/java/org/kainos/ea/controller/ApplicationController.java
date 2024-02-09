@@ -14,10 +14,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Api("QA Academy Passport Application API")
-@Path("/application")
+@Path("/api")
 public class ApplicationController {
-   // private final ApplicationService applicationService = new ApplicationService();
-
     private final ApplicationService applicationService;
 
     public ApplicationController(ApplicationService applicationService) {
@@ -25,8 +23,8 @@ public class ApplicationController {
     }
 
     @POST
+    @Path("/application")
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response submitApplication(ApplicationWrapper applicationWrapper) {
         try {
             Application application = applicationWrapper.getApplication();
